@@ -3,6 +3,7 @@ package com.example.einzelbeispiel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         clientTCP = new ClientTCP();
 
         tfInstruction = findViewById(R.id.tfInstruction);
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnSend.setOnClickListener(
                 view -> {
+                    tfServerAnswer.setText(" ");
                     String input = etfMNr.getText().toString();
 
                     try {
