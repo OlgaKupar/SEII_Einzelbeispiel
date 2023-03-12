@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class ClientTCP {
+public class ClientTCP extends Thread {
 
     String getServerAnswer (String mnr) throws IOException{
 
