@@ -21,6 +21,8 @@ public class ClientTCP {
         outToServer.writeBytes(mnr);
         serverAnswer = inFromServer.readLine();
 
+        clientSocket.close();
+
         return serverAnswer;
     }
 
