@@ -10,7 +10,7 @@ import java.net.Socket;
 
 
 public class ClientTCP extends Thread {
-    String getServerAnswer (String mnr) throws IOException{
+    String getServerAnswer (String mNr) throws IOException{
 
         String serverAnswer;
 
@@ -20,7 +20,7 @@ public class ClientTCP extends Thread {
 
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-        outToServer.writeBytes(mnr+'\n');
+        outToServer.writeBytes(mNr+'\n');
         serverAnswer = inFromServer.readLine();
 
         clientSocket.close();

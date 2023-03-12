@@ -17,7 +17,7 @@ public class DigitSum extends Thread {
 
         int digitSum = 0;
         int digit=0;
-        //String binaryDigitSum;
+
         List<Integer>listOfDigits=new ArrayList<>();
         try {
 
@@ -34,7 +34,7 @@ public class DigitSum extends Thread {
             for(int i:listOfDigits){
                 digitSum+=i;
             }
-            //binaryDigitSum = Integer.toBinaryString(digitSum);
+
             return digitSum;
 
         }catch (NumberFormatException numberFormatException){
