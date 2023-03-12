@@ -13,11 +13,11 @@ import java.util.List;
 
 public class DigitSum extends Thread {
 
-    String getDigitSumBinary (String mNr) throws NumberFormatException{
+    int getDigitSum (String mNr) throws NumberFormatException{
 
         int digitSum = 0;
         int digit=0;
-        String binaryDigitSum;
+        //String binaryDigitSum;
         List<Integer>listOfDigits=new ArrayList<>();
         try {
 
@@ -34,13 +34,23 @@ public class DigitSum extends Thread {
             for(int i:listOfDigits){
                 digitSum+=i;
             }
-            binaryDigitSum = Integer.toBinaryString(digitSum);
-            return binaryDigitSum;
+            //binaryDigitSum = Integer.toBinaryString(digitSum);
+            return digitSum;
 
         }catch (NumberFormatException numberFormatException){
             Log.e("TAG", "Number format exception");
         }
-        return "Please try again: your MNr is wrong.";
+        return -1;
+    }
+
+    String getDigitSumBinary (int digitSum){
+        String binaryDigitSum;
+        if(digitSum!=-1){
+            binaryDigitSum = Integer.toBinaryString(digitSum);
+        }else{
+            binaryDigitSum="Please try again: invalid input";
+        }
+        return binaryDigitSum;
     }
 
 
