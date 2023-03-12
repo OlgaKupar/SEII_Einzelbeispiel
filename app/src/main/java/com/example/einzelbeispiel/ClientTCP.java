@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class ClientTCP {
 
-    private String getServerAnswer (String mnr) throws IOException{
+    String getServerAnswer (String mnr) throws IOException{
 
         String serverAnswer;
 
