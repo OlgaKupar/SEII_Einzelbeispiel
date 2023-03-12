@@ -1,10 +1,13 @@
 package com.example.einzelbeispiel;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+
 
 public class ClientTCP extends Thread {
     String getServerAnswer (String mnr) throws IOException{
@@ -24,6 +27,7 @@ public class ClientTCP extends Thread {
 
         return serverAnswer;
     }
+
 
 
 }
