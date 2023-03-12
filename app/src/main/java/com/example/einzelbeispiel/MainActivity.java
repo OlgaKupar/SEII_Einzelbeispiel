@@ -63,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 view-> {
 
                     String input = etfMNr.getText().toString();
-                    String output = digitSum.getDigitSumBinary(input);
-                    tfComputationResult.setText("Binary representation"+output);
+                    String output = digitSum.getDigitSumBinary(digitSum.getDigitSum(input));
+                    tfComputationResult.setText("Digit sum of your MNr is "+digitSum.getDigitSum(input)+"." +
+                            " Its binary representation is "+output+".");
 
                 }
         );
