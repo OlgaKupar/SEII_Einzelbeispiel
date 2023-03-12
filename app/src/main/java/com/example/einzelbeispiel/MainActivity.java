@@ -13,6 +13,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     ClientTCP clientTCP;
+    DigitSum digitSum;
 
     TextView tfInstruction;
     TextView tfServerAnswer;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         clientTCP = new ClientTCP();
+        digitSum = new DigitSum();
+
 
         tfInstruction = findViewById(R.id.tfInstruction);
         tfServerAnswer = findViewById(R.id.tfServerAnswer);
@@ -42,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnSend.setOnClickListener(
                 view -> {
-                    tfServerAnswer.setText(" ");
                     String input = etfMNr.getText().toString();
 
                     try {
@@ -54,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                }
+        );
+
+        btnCompute.setOnClickListener(
+                view-> {
+
+                    String input = etfMNr.getText().toString();
+                    String output = digitSum.getDigitSumBinary(input);
+                    tfComputationResult.setText("Binary representation"+output);
+
                 }
         );
     }
